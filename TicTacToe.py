@@ -73,7 +73,7 @@ def cell_available(cell_num):
 
 def check_grid_full():
     '''
-    Function to check if grid is has no empty cells remaining, i.e. if grid is filled or not.
+    Function to check if grid has no empty cells remaining, i.e. if grid is filled or not.
     '''
     return (' ' not in grid)
 
