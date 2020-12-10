@@ -26,7 +26,7 @@ def result(pair):
     if pair in draw:
         print("Its a draw. Both selected ", pair[0])
     # If win condition for User is satisfied
-    elif (user, computer) in win:
+    elif pair in win:
         print("User WON the game as {} beats {}".format(pair[0], pair[1]))
     # Else Computer wins
     else:
