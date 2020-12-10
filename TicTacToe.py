@@ -92,6 +92,7 @@ def check_win(user, computer):
         for comb in user_comb:
             if comb in win:
                 print("User Wins!")
+                user_win=1
                 return 1
         # Sort computer list
         computer.sort()
@@ -101,6 +102,7 @@ def check_win(user, computer):
         for comb in computer_comb:
             if comb in win:
                 print("Computer Wins!")
+                computer_win=1
                 return 1
         # Return 0 (False) if no one wins
         return 0
@@ -109,7 +111,12 @@ def check_draw():
     '''
     Can you help me with the logic for identifying a draw?
     '''
-    pass  
+    if check_win(user, computer) == 0 and len(user)+len(computer)==9:
+        print("Its a draw. Neither User nor Computer won the game.")
+        return 1
+    else:
+        return 0
+  
 
 # Main code
 # Set boolean variable playing as True to start game
