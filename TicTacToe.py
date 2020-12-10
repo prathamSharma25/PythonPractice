@@ -82,15 +82,15 @@ def check_win(user, computer):
         user.sort()
         # Generate all combinations of length 3 for user
         user_comb = list(combinations(user, 3))
-        # Sort computer list
-        computer.sort()
-        # Generate all combinations of length 3 for computer
-        computer_comb = list(combinations(computer, 3))
         # For each user combintion, check if it is a winning combination and retur 1 (True) is user wins
         for comb in user_comb:
             if comb in win:
                 print("User Wins!")
                 return 1
+        # Sort computer list
+        computer.sort()
+        # Generate all combinations of length 3 for computer
+        computer_comb = list(combinations(computer, 3))
         # For each computer combintion, check if it is a winning combination and return 1 (True) is computer wins
         for comb in computer_comb:
             if comb in win:
@@ -121,7 +121,7 @@ while(playing):
     # Show grid before game starts
     show_grid(grid)
     # Play round till User or Computer wins or grid is completely filled
-    while len(grid)==9:
+    while ' ' in grid:
         # Let user place 'O'
         user_place()
         show_grid(grid)
