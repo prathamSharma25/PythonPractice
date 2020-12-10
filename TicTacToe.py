@@ -106,6 +106,9 @@ def check_win(user, computer):
         return 0
 
 def check_draw():
+    '''
+    Function to check if a draw has occurred.
+    '''
     if check_win(user, computer)==0 and len(user)+len(computer)==9:
         print("Its a draw. Neither User nor Computer won the game.")
         return 1
