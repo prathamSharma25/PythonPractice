@@ -112,7 +112,7 @@ def check_draw():
     else:
         return 0
 
-#Main code
+# Main code
 # Set boolean variable playing as True to start game
 playing = True
 # Display instructions
