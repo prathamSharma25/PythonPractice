@@ -112,7 +112,7 @@ def check_draw():
     '''
     Function to check if a draw has occurred.
     '''
-    if check_win(user, computer)==0 and len(user)+len(computer)==9:
+    if not check_win(user, computer) and check_grid_full():
         print("Its a draw. Neither User nor Computer won the game.")
         return 1
     else:
