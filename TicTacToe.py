@@ -106,12 +106,13 @@ def check_win(user, computer):
         return 0
 
 def check_draw():
-    '''
-    Can you help me with the logic for identifying a draw?
-    '''
-    pass  
+    if check_win(user, computer)==0 and len(user)+len(computer)==9:
+        print("Its a draw. Neither User nor Computer won the game.")
+        return 1
+    else:
+        return 0
 
-# Main code
+#Main code
 # Set boolean variable playing as True to start game
 playing = True
 # Display instructions
