@@ -71,10 +71,16 @@ def cell_available(cell_num):
     '''
     return grid[cell_num-1]==' '  
 
+def check_grid_full():
+    return (' ' not in grid)
+
 def check_win(user, computer):
     '''
     Function to check if either user or computer has won.
     '''
+    # List of combinations of grid positions that result in a win
+    win = [(1, 2, 3), (4, 5, 6), (7, 8, 9), (1, 4, 7), (2, 5, 8), (3, 6, 9), (1, 5, 9), (3, 5, 7)]
+    
     if len(user)<3 or len(computer)<3:
         return 0
     else:
@@ -105,13 +111,12 @@ def check_draw():
     '''
     pass  
 
-# Main code  
-# List of combinations of grid positions that result in a win
-win = [(1, 2, 3), (4, 5, 6), (7, 8, 9), (1, 4, 7), (2, 5, 8), (3, 6, 9), (1, 5, 9), (3, 5, 7)]
+# Main code
 # Set boolean variable playing as True to start game
 playing = True
 # Display instructions
 instructions()
+
 while(playing):
     # Empty lists to store grid positions occupied by User and Computer
     user, computer = [], []
@@ -120,20 +125,33 @@ while(playing):
     print("\n\n------------- Let's Play TIC-TAC-TOE -------------")
     # Show grid before game starts
     show_grid(grid)
+    
     # Play round till User or Computer wins or grid is completely filled
-    while ' ' in grid:
-        # Let user place 'O'
-        user_place()
-        show_grid(grid)
-        # Check for win or draw and end round if either is true
-        if check_win(user, computer) or check_draw():
+    while True:
+        # Check if grid is not full
+        if not check_grid_full():
+            # Let user place 'O'
+            user_place()
+            show_grid(grid)
+            # Check for win or draw and end round if either is true
+            if check_win(user, computer) or check_draw():
+                break
+        # If grid is full end round
+        else:
             break
-        # Let Computer place 'X'
-        computer_place()
-        show_grid(grid)
-        # Check for win or draw and end round if either is true
-        if check_win(user, computer) or check_draw():
+        
+        # Check if grid is not full
+        if not check_grid_full():
+            # Let Computer place 'X'
+            computer_place()
+            show_grid(grid)
+            # Check for win or draw and end round if either is true
+            if check_win(user, computer) or check_draw():
+                break
+        # If grid is full end round
+        else:
             break
+            
     new_round = input("Play again? (y/n): ")
     # Set boolean variable according to user input for new round
     playing = (new_round=='y')
